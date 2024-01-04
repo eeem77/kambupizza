@@ -1,0 +1,63 @@
+---
+// import { Icon } from "astro-icon";
+// import { Image } from "astro:assets";
+// import Logo from "~/assets/logo.png";
+import ContentSection from "~/components/content-section.astro";
+import Card from "~/components/card.astro";
+import CardTwo from "~/components/card-two.astro";
+import Pizza1 from "~/assets/pizza1.jpg";
+import Pizza2 from "~/assets/pizza2.jpg";
+import Pizza3 from "~/assets/pizza3.jpg";
+import Chicken1 from "~/assets/chicken1.jpg";
+const widths = [1000, 1000];
+const sizes = "(min-width: 10px) 2vw, 2vw";
+---
+
+<ContentSection title="Exceptional Atmosphere, Cuisine." id="intro">
+  <!-- <Icon slot="eyebrow" name="logomark" class="h-32" /> -->
+  <Fragment slot="lead">
+    Making pizza is a lot like making love. It’s all about passion, attention to
+    detail, and the perfect blend of ingredients.
+  </Fragment>
+  <Card
+    urlimage={Pizza1}
+    title="The Inviting Atmosphere of Kambu Pizza"
+    text="Step into Kambu Pizza, where each visit is a celebration of culinary delights in a warm and vibrant atmosphere. Beyond offering delicious pizzas, our restaurant is a haven of warmth, laughter, and exceptional service. The cozy ambiance and the enticing aroma of freshly baked pizzas create an unforgettable experience. Whether you’re sharing a meal with friends, enjoying a family dinner, or savoring a quiet moment alone, Kambu Pizza promises an atmosphere that enhances the joy of every slice. Join us to experience exceptional dining with delightful flavors and fellowship."
+  />
+</ContentSection>
+
+<ContentSection title="Good Vibes" id="intro">
+  <!-- <Icon slot="eyebrow" name="logomark" class="h-32" /> -->
+  <Fragment slot="lead">
+    Delight in Good Vibes with Every Bite at Our Restaurant.
+  </Fragment>
+  <CardTwo
+    urlimage={Pizza2}
+    title="The Inviting Atmosphere of Kambu Pizza"
+    text="Step into Kambu Pizza, where each visit is a celebration of culinary delights in a warm and vibrant atmosphere. Beyond offering delicious pizzas, our restaurant is a haven of warmth, laughter, and exceptional service. The cozy ambiance and the enticing aroma of freshly baked pizzas create an unforgettable experience. Whether you’re sharing a meal with friends, enjoying a family dinner, or savoring a quiet moment alone, Kambu Pizza promises an atmosphere that enhances the joy of every slice. Join us to experience exceptional dining with delightful flavors and fellowship."
+  />
+</ContentSection>
+
+<ContentSection title="Cozy Corner" id="intro">
+  <!-- <Icon slot="eyebrow" name="logomark" class="h-32" /> -->
+  <Fragment slot="lead">
+    Transform visits into unique culinary experiences. Immerse in warmth, savor delicious pizzas, feel at home
+  </Fragment>
+  <Card
+    urlimage={Pizza3}
+    title="Crafting Artisanal Excellence, One Slice at a Time"
+    text="At Kambu Pizza, our culinary experience is a journey of exceptional flavors and artisanal mastery. Each pizza is carefully crafted with high-quality ingredients, blending tradition and innovation to deliver a unique gastronomic experience. Our passionate chefs, dedicated to perfection, turn every creation into a masterpiece, ensuring that each bite reflects Kambu Pizza’s commitment to culinary excellence. Immerse yourself in an unparalleled gastronomic experience and discover the art behind every pizza we serve."
+  />
+</ContentSection>
+
+<ContentSection title="Chicken Signature" id="intro">
+  <!-- <Icon slot="eyebrow" name="logomark" class="h-32" /> -->
+  <Fragment slot="lead">
+    Reserve at Kambu Pizza, savor flavor, indulge in unforgettable chicken wing experience.
+  </Fragment>
+  <CardTwo
+    urlimage={Chicken1}
+    title="Kambu Chicken Wing"
+    text="Experience the culinary brilliance of Kambu Chicken Wings. Our chefs meticulously blend flavors, delivering crispy perfection with every bite. From classic buffalo to innovative fusions, each wing is a masterpiece. Elevate your dining journey and indulge in the bold, delectable excellence that defines our signature Kambu Chicken Wings."
+  />
+</ContentSection>

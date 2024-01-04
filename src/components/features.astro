@@ -1,0 +1,269 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+import type { FeatureItem, MenuItem, ChickenItem, PartyItem } from "~/types";
+
+const party: Array<PartyItem> = [
+  {
+    title: "Service: Self Service",
+    description: "Wedding Party, Birthday Party, Frendship Party, Work Party, Farewell Party",
+    icon: "mdi:balloon",
+    people: "2-50",
+    time: "11am-9pm",
+    hours: "3 Hours Max",
+    chargue: "$300",
+    obs: "No, anykind of food, Alcohol, Soda. But you can bring cake",
+  },
+  {
+    title: "Service: Self Service",
+    description: "Kambu Pizza Specially Party Room Rent",
+    icon: "mdi:balloon",
+    people: "2-50",
+    time: "11am-9pm",
+    hours: "3 Hours Max",
+    chargue: "$900",
+    obs: "Yes, outside catering or homemade food and soda. But No anykind alcohol & wine",
+  },
+]
+
+const chicken: Array<ChickenItem> = [
+  {
+    title: "American Style",
+    description:
+      "",
+    icon: "mdi:food-drumstick",
+    pricem: "$26.99",
+    pricel: "",
+  },
+  {
+    title: "Korean Style Hot Spicy",
+    description:
+      "",
+    icon: "mdi:food-drumstick",
+    pricem: "$29.99",
+    pricel: "",
+  },
+]
+
+const menu: Array<MenuItem> = [
+  {
+    title: "#1 Kambu Special",
+    description:
+      "Pepperoni, Italian Sausage, Salsami, Mushroom, Red Onion, Bell Papper",
+    icon: "mdi:pizza",
+    pricem: "$31.99",
+    pricel: "$34.99",
+  },
+  {
+    title: "#2 Kambu Gourmet vegetarian",
+    description:
+      "Mushroom, Bell Papper, Red Onion, Black Olive, Artichoke Heart and Fresh Tomato",
+    icon: "mdi:pizza",
+    pricem: "$31.99",
+    pricel: "$34.99",
+  },
+  {
+    title: '#3 Kambu Hawailan "Aloha"',
+    description:
+      "Ham or Canadian Bacon and Pineapple",
+    icon: "mdi:pizza",
+    pricem: "$29.99",
+    pricel: "$34.99",
+  },
+  {
+    title: '#4 Kambu chicken superme',
+    description:
+      "Sauteed Chicken Mushroom, Red Onion, Bell Pepper, Italian Seasoning and Touch of Fresh Garlic",
+    icon: "mdi:pizza",
+    pricem: "$31.99",
+    pricel: "$34.99",
+  },
+  {
+    title: '#5 Kambu Shrimp Gourmet',
+    description:
+      "Sauteed Shrimp, Mushroom, Red Onion, Bell Pepper",
+    icon: "mdi:pizza",
+    pricem: "$31.99",
+    pricel: "$35.99",
+  },
+  {
+    title: '#6 All Meat',
+    description:
+      "Italian Sausage, Salami, Pepperoni, Bacon, Polish, Pastrami and Linguica",
+    icon: "mdi:pizza",
+    pricem: "$32.99",
+    pricel: "$36.99",
+  },
+  {
+    title: '#7 Kambu Cheese Only',
+    description:
+      "",
+    icon: "mdi:pizza",
+    pricem: "$25.99",
+    pricel: "$30.99",
+  },
+  {
+    title: '#8 Kambu Cheese & Pepperoni only',
+    description:
+      "",
+    icon: "mdi:pizza",
+    pricem: "$29.99",
+    pricel: "$32.99",
+  },
+];
+
+const features: Array<FeatureItem> = [
+  {
+    title: "Experience",
+    description: "Exceptional service in every bite.",
+    icon: "mdi:room-service-outline",
+  },
+  {
+    title: "Cozy Corner",
+    description: "Flavor and warmth in every visit.",
+    icon: "mdi:charity",
+  },
+  {
+    title: "Relax Atmosphere",
+    description: "Relaxed flavor in every moment.",
+    icon: "mdi:music-circle",
+  },
+  // {
+  //   title: "Broad Integration",
+  //   description:
+  //     "Astro supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind, Markdown, MDX, and any of your favorite npm packages.",
+  //   icon: "mdi:graph",
+  // },
+  // {
+  //   title: "SEO Enabled",
+  //   description:
+  //     "Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication.",
+  //   icon: "mdi:search-web",
+  // },
+  // {
+  //   title: "Community",
+  //   description:
+  //     "Astro is an open source project powered by hundreds of contributors making thousands of individual contributions.",
+  //   icon: "mdi:account-group",
+  // },
+];
+---
+
+<ContentSection title="Our Story" id="about">
+  <Fragment slot="lead">
+    For two decades, Kambu Pizza delivers culinary excellence, emphasizing quality, innovation, and a welcoming community atmosphere. Perfectly crafted dough, curated flavors, and memorable experiences define our commitment to excellence. As a preferred venue for special occasions, Kambu Pizza offers decades of unrivaled experience and flavor.
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      features.map(({ title, description, icon }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+          <div class="h-16 w-16 rounded-full border-2 border-current p-3">
+            <Icon name={icon} />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>
+
+<ContentSection title="Kambu Pizza Menu" id="menu">
+  <Fragment slot="lead">
+    Savor the exquisite blend of flavor, quality, and affordability that defines
+    our pizzas, turning every bite into a taste of excellence.
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      menu.map(({ title, description, icon, pricem, pricel }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+          <div class="h-16 w-16 rounded-full border-2 border-current p-3">
+            <Icon name={icon} />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+          <div>
+            <table class="text-center">
+              <tr>
+                <td class="px-6 py-1">12" (M)</td>
+                <td class="px-6 py-1">14" (L)</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-1">{pricem}</td>
+                <td class="px-6 py-1">{pricel}</td>
+              </tr>
+            </table>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>
+
+<ContentSection title="Kambu Chicken Wing" id="chicken">
+  <Fragment slot="lead">
+    Experience a flavor journey with our Special Chicken Wings at Kambu Pizza. Meticulously crafted for succulence, bold notes, and aromatic spices, each wing is a culinary masterpiece. Join us for unparalleled taste and a new wing perfection standard.
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      chicken.map(({ title, description, icon, pricem, pricel }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+          <div class="h-16 w-16 rounded-full border-2 border-current p-3">
+            <Icon name={icon} />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+          <div>
+            <table>
+              <tr>
+                <td class="px-6 py-1">{pricem}</td>
+              </tr>
+            </table>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>
+
+<ContentSection title="Kambu Pizza Private Party Room" id="party">
+  <Fragment slot="lead">
+    Donec sagittis sagittis vestibulum. Morbi vestibulum neque.
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      party.map(({ title, description, icon, people, time, hours, chargue, obs }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+          <div class="h-16 w-16 rounded-full border-2 border-current p-3">
+            <Icon name={icon} />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+          <div>
+            <table class="text-xs">
+              <tr>
+                <td class="px-6 py-1">Max Number of People</td>
+                <td class="px-6 py-1">{people}</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-1">Open Time</td>
+                <td class="px-6 py-1">{time}</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-1">Party Hours</td>
+                <td class="px-6 py-1">{hours}</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-1">Party Room Rent Charge</td>
+                <td class="px-6 py-1">{chargue}</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="px-6 py-1 text-gray-400 text-center">{obs}</td>
+              </tr>
+            </table>
+            </div>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>
