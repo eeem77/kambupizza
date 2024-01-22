@@ -12,7 +12,7 @@ export interface FeatureItem {
 
 export interface MenuItem {
   description: string;
-  icon: string;
+  imageSrc: string;
   title: string;
   pricem: string;
   pricel: string;

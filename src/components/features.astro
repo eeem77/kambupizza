@@ -1,12 +1,14 @@
 ---
 import { Icon } from "astro-icon";
+import { Image } from "astro:assets";
 import ContentSection from "~/components/content-section.astro";
 import type { FeatureItem, MenuItem, ChickenItem, PartyItem } from "~/types";
 
 const party: Array<PartyItem> = [
   {
     title: "Service: Self Service",
-    description: "Wedding Party, Birthday Party, Frendship Party, Work Party, Farewell Party",
+    description:
+      "Wedding Party, Birthday Party, Frendship Party, Work Party, Farewell Party",
     icon: "mdi:balloon",
     people: "2-50",
     time: "11am-9pm",
@@ -24,33 +26,31 @@ const party: Array<PartyItem> = [
     chargue: "$900",
     obs: "Yes, outside catering or homemade food and soda. But No any kind of alcohol & wine",
   },
-]
+];
 
 const chicken: Array<ChickenItem> = [
   {
     title: "American Style",
-    description:
-      "",
+    description: "",
     icon: "mdi:food-drumstick",
     pricem: "$26.99",
     pricel: "",
   },
   {
     title: "Korean Style Hot Spicy",
-    description:
-      "",
+    description: "",
     icon: "mdi:food-drumstick",
     pricem: "$29.99",
     pricel: "",
   },
-]
+];
 
 const menu: Array<MenuItem> = [
   {
     title: "#1 Kambu Special",
     description:
       "Pepperoni, Italian Sausage, Salami, Mushroom, Red Onion, Bell Pepper",
-    icon: "mdi:pizza",
+    imageSrc: "/kambu_speacial.gif",
     pricem: "$31.99",
     pricel: "$34.99",
   },
@@ -58,31 +58,29 @@ const menu: Array<MenuItem> = [
     title: "#2 Kambu Gourmet Vegetarian",
     description:
       "Mushroom, Bell Pepper, Red Onion, Black Olive, Artichoke Heart and Fresh Tomato",
-    icon: "mdi:pizza",
+    imageSrc: "/veg.gif",
     pricem: "$31.99",
     pricel: "$34.99",
   },
   {
     title: '#3 Kambu Hawaiian "Aloha"',
-    description:
-      "Ham or Canadian Bacon and Pineapple",
-    icon: "mdi:pizza",
+    description: "Ham or Canadian Bacon and Pineapple",
+    imageSrc: "/hawaian.gif",
     pricem: "$29.99",
     pricel: "$34.99",
   },
   {
-    title: '#4 Kambu Chicken Supreme',
+    title: "#4 Kambu Chicken Supreme",
     description:
       "Sauteed Chicken, Mushroom, Red Onion, Bell Pepper, Italian Seasoning and a Touch of Fresh Garlic",
-    icon: "mdi:pizza",
+    imageSrc: "/chicken.gif",
     pricem: "$32.99",
     pricel: "$35.99",
   },
   {
-    title: '#5 Kambu Shrimp Gourmet',
-    description:
-      "Sauteed Shrimp, Mushroom, Red Onion and Bell Pepper",
-    icon: "mdi:pizza",
+    title: "#5 Kambu Shrimp Gourmet",
+    description: "Sauteed Shrimp, Mushroom, Red Onion and Bell Pepper",
+    imageSrc: "/shrimp.gif",
     pricem: "$31.99",
     pricel: "$35.99",
   },
@@ -90,7 +88,7 @@ const menu: Array<MenuItem> = [
     title: '#6 All Meat',
     description:
       "Italian Sausage, Salami, Pepperoni, Bacon, Polish, Pastrami and Linguiça",
-    icon: "mdi:pizza",
+      imageSrc: "/all_meat.gif",
     pricem: "$32.99",
     pricel: "$36.99",
   },
@@ -98,7 +96,7 @@ const menu: Array<MenuItem> = [
     title: '#7 Kambu Cheese Only',
     description:
       "",
-    icon: "mdi:pizza",
+      imageSrc: "/cheese.gif",
     pricem: "$25.99",
     pricel: "$30.99",
   },
@@ -106,7 +104,7 @@ const menu: Array<MenuItem> = [
     title: '#8 Kambu Cheese & Pepperoni Only',
     description:
       "",
-    icon: "mdi:pizza",
+      imageSrc: "/pepperoni.gif",
     pricem: "$29.99",
     pricel: "$32.99",
   },
@@ -151,7 +149,11 @@ const features: Array<FeatureItem> = [
 
 <ContentSection title="Our Story" id="about">
   <Fragment slot="lead">
-    For two decades, Kambu Pizza delivers culinary excellence, emphasizing quality, innovation, and a welcoming community atmosphere. Perfectly crafted dough, curated flavors, and memorable experiences define our commitment to excellence. As a preferred venue for special occasions, Kambu Pizza offers decades of unrivaled experience and flavor.
+    For two decades, Kambu Pizza delivers culinary excellence, emphasizing
+    quality, innovation, and a welcoming community atmosphere. Perfectly crafted
+    dough, curated flavors, and memorable experiences define our commitment to
+    excellence. As a preferred venue for special occasions, Kambu Pizza offers
+    decades of unrivaled experience and flavor.
   </Fragment>
   <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
     {
@@ -175,10 +177,10 @@ const features: Array<FeatureItem> = [
   </Fragment>
   <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
     {
-      menu.map(({ title, description, icon, pricem, pricel }) => (
+      menu.map(({ title, description, imageSrc, pricem, pricel }) => (
         <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
-          <div class="h-16 w-16 rounded-full border-2 border-current p-3">
-            <Icon name={icon} />
+          <div class="h-40 w-40 rounded-full p-3">
+            <img src={imageSrc} class="rounded-full" />
           </div>
           <p class="text-center font-extrabold text-xl">{title}</p>
           <p class="text-center text-offset text-sm">{description}</p>
@@ -228,42 +230,53 @@ const features: Array<FeatureItem> = [
 
 <ContentSection title="Kambu Pizza Private Party Room" id="party">
   <Fragment slot="lead">
-    Welcome to the exquisite world of Kambu Pizza's Private Party Room, where we invite you to elevate your gatherings to an unparalleled level of sophistication and enjoyment. Immerse yourself in a luxurious ambiance tailored for intimate celebrations, as our culinary artisans curate a bespoke experience, pairing delectable pizzas with exceptional service. Whether it's a corporate event, milestone celebration, or an intimate soirée, our Private Party Room offers the perfect blend of opulence and culinary excellence to make your event truly unforgettable.
+    Welcome to the exquisite world of Kambu Pizza's Private Party Room, where we
+    invite you to elevate your gatherings to an unparalleled level of
+    sophistication and enjoyment. Immerse yourself in a luxurious ambiance
+    tailored for intimate celebrations, as our culinary artisans curate a
+    bespoke experience, pairing delectable pizzas with exceptional service.
+    Whether it's a corporate event, milestone celebration, or an intimate
+    soirée, our Private Party Room offers the perfect blend of opulence and
+    culinary excellence to make your event truly unforgettable.
   </Fragment>
   <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
     {
-      party.map(({ title, description, icon, people, time, hours, chargue, obs }) => (
-        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
-          <div class="h-16 w-16 rounded-full border-2 border-current p-3">
-            <Icon name={icon} />
-          </div>
-          <p class="text-center font-extrabold text-xl">{title}</p>
-          <p class="text-center text-offset text-sm">{description}</p>
-          <div>
-            <table class="text-xs">
-              <tr>
-                <td class="px-6 py-1">Max Number of People</td>
-                <td class="px-6 py-1">{people}</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-1">Open Time</td>
-                <td class="px-6 py-1">{time}</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-1">Party Hours</td>
-                <td class="px-6 py-1">{hours}</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-1">Party Room Rent Charge</td>
-                <td class="px-6 py-1">{chargue}</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="px-6 py-1 text-gray-400 text-center">{obs}</td>
-              </tr>
-            </table>
+      party.map(
+        ({ title, description, icon, people, time, hours, chargue, obs }) => (
+          <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+            <div class="h-16 w-16 rounded-full border-2 border-current p-3">
+              <Icon name={icon} />
             </div>
-        </li>
-      ))
+            <p class="text-center font-extrabold text-xl">{title}</p>
+            <p class="text-center text-offset text-sm">{description}</p>
+            <div>
+              <table class="text-xs">
+                <tr>
+                  <td class="px-6 py-1">Max Number of People</td>
+                  <td class="px-6 py-1">{people}</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-1">Open Time</td>
+                  <td class="px-6 py-1">{time}</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-1">Party Hours</td>
+                  <td class="px-6 py-1">{hours}</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-1">Party Room Rent Charge</td>
+                  <td class="px-6 py-1">{chargue}</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="px-6 py-1 text-center text-gray-400">
+                    {obs}
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </li>
+        ),
+      )
     }
   </ul>
 </ContentSection>
