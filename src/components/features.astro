@@ -147,6 +147,38 @@ const features: Array<FeatureItem> = [
 ];
 ---
 
+<ContentSection title="Kambu Pizza Menu" id="menu">
+  <Fragment slot="lead">
+    Savor the exquisite blend of flavor, quality, and affordability that defines
+    our pizzas, turning every bite into a taste of excellence.
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      menu.map(({ title, description, imageSrc, pricem, pricel }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+          <div class="h-100 w-100 rounded-full p-3">
+            <img src={imageSrc} class="rounded-full" />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+          <div>
+            <table class="text-center">
+              <tr>
+                <td class="px-6 py-1">12" (M)</td>
+                <td class="px-6 py-1">14" (L)</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-1">{pricem}</td>
+                <td class="px-6 py-1">{pricel}</td>
+              </tr>
+            </table>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>
+
 <ContentSection title="Our Story" id="about">
   <Fragment slot="lead">
     For two decades, Kambu Pizza delivers culinary excellence, emphasizing
@@ -170,37 +202,7 @@ const features: Array<FeatureItem> = [
   </ul>
 </ContentSection>
 
-<ContentSection title="Kambu Pizza Menu" id="menu">
-  <Fragment slot="lead">
-    Savor the exquisite blend of flavor, quality, and affordability that defines
-    our pizzas, turning every bite into a taste of excellence.
-  </Fragment>
-  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-    {
-      menu.map(({ title, description, imageSrc, pricem, pricel }) => (
-        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
-          <div class="h-40 w-40 rounded-full p-3">
-            <img src={imageSrc} class="rounded-full" />
-          </div>
-          <p class="text-center font-extrabold text-xl">{title}</p>
-          <p class="text-center text-offset text-sm">{description}</p>
-          <div>
-            <table class="text-center">
-              <tr>
-                <td class="px-6 py-1">12" (M)</td>
-                <td class="px-6 py-1">14" (L)</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-1">{pricem}</td>
-                <td class="px-6 py-1">{pricel}</td>
-              </tr>
-            </table>
-          </div>
-        </li>
-      ))
-    }
-  </ul>
-</ContentSection>
+
 
 <!-- <ContentSection title="Kambu Chicken Wing" id="chicken">
   <Fragment slot="lead">
